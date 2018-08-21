@@ -21,7 +21,7 @@ type DatadogCollector interface {
 
 type DatadogMetricNames struct {
 	Metrics []string `json:"metrics"`
-	From    string   `json:"from"`
+	From    int      `json:"from"`
 }
 
 func (d DatadogClient) GetDDMetricNames() ([]string, error) {
@@ -42,8 +42,8 @@ func (d DatadogClient) GetDDMetricNames() ([]string, error) {
 	}
 
 	output, _ := ioutil.ReadAll(resp.Body)
-
 	defer resp.Body.Close()
+
 	metricNames, err := UnmarshalDatadogMetricNames(output)
 	if err != nil {
 		return nil, err

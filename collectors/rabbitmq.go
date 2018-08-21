@@ -70,7 +70,7 @@ func UnmarshalQueueNames(queueJSON []byte) ([]string, error) {
 func RunRabbitMQCollector(r RabbitMQCollector) {
 	metricNames, err := r.GetQueueNames()
 	if err != nil {
-		Logger.Errorf("Unable to ger RabbitMQ queue names: %s", err)
+		Logger.Errorf("Unable to get RabbitMQ queue names: %s", err)
 	}
 	Logger.Infof("%v", metricNames)
 

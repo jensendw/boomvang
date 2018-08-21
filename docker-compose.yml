@@ -1,0 +1,10 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7.23
+
+  boomvang:
+    build: .
+    command: /app/boomvang
+    depends_on:
+      - db
